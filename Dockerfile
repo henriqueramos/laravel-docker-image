@@ -15,9 +15,15 @@ LABEL maintainer="Henrique Ramos <henrique@henriqueramos.eti.br>"
 LABEL com.custom_httpd.version="1.0"
 LABEL com.custom_httpd.release-date="2020-01-28"
 
-RUN apk update
-RUN apk add openssl
-RUN apk add bash
+RUN set -x && \
+    apk update && \
+    apk add openssl && \
+    apk add bash && \
+    apk add libintl && \
+    apk add --virtual build_deps gettext &&  \
+    cp /usr/bin/envsubst /usr/local/bin/envsubst && \
+    apk del build_deps
+
 RUN docker-php-ext-install pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
