@@ -3,17 +3,17 @@
 #
 # Repository: PHP
 # Image: Apache
-# Version: 7.3.14
+# Version: 7.4.9
 # Strategy: PHP From PHP-Alpine Repository
-# Base distro: php:7.3.14-alpine3.11
+# Base distro: php:7.4.9-alpine3.11
 #
-FROM php:7.3.14-alpine3.11
+FROM php:7.4.9-alpine3.11
 
 # Repository/Image Maintainer
 LABEL maintainer="Henrique Ramos <henrique@henriqueramos.eti.br>"
 
-LABEL com.custom_httpd.version="1.0"
-LABEL com.custom_httpd.release-date="2020-01-28"
+LABEL com.custom_httpd.version="1.1"
+LABEL com.custom_httpd.release-date="2020-08-17"
 
 RUN set -x && \
     apk update && \
